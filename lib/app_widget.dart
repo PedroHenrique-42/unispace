@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unispace/core/constants/routes.dart';
 import 'package:unispace/core/themes/main_theme.dart';
-import 'package:unispace/presentation/screens/home_page.dart';
-import 'package:unispace/presentation/screens/register_page.dart';
+import 'package:unispace/features/home/presentation/screens/home_page.dart';
+import 'package:unispace/features/register/screens/register_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -14,7 +14,7 @@ class AppWidget extends StatelessWidget {
       builder: (context, orientation, deviceType) => MaterialApp(
         title: "UNI'Space",
         debugShowCheckedModeBanner: false,
-        theme: MainTheme.getMainTheme(),
+        theme: MainTheme.getMainTheme(context),
         routes: {
           Routes.home: (context) => const HomePage(),
           Routes.registerPage: (context) => const RegisterPage(),

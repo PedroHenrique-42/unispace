@@ -19,8 +19,7 @@ class BannerWidget extends StatelessWidget {
             width: 5,
           ),
         ),
-        height: 50.h,
-        width: 55.w,
+        width: MediaQuery.of(context).size.width > 1000 ? 55.w : 80.w,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -44,8 +43,8 @@ class BannerWidget extends StatelessWidget {
                 color: AppColors.primaryWhite,
               ),
               Container(
-                height: 50,
-                width: 10.w,
+                height: MediaQuery.of(context).size.width > 1000 ? 50 : 40,
+                width: MediaQuery.of(context).size.width > 1000 ? 10.w : 30.w,
                 decoration: const BoxDecoration(
                   color: AppColors.secondaryBrown,
                   borderRadius: BorderRadius.all(

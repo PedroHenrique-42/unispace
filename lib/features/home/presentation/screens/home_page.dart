@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unispace/core/constants/assets.dart';
-import 'package:unispace/presentation/widgets/banner_widget.dart';
+import 'package:unispace/features/home/presentation/widgets/banner_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
