@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unispace/core/constants/app_colors.dart';
 
@@ -19,7 +18,6 @@ class FormWidget extends StatefulWidget {
 
 class _FormWidgetState extends State<FormWidget> {
   final _formKey = GlobalKey<FormState>();
-  final _dropDownKey = GlobalKey<FormState>();
 
   Options selectedOption = Options.small;
 
@@ -52,6 +50,7 @@ class _FormWidgetState extends State<FormWidget> {
                     }
                     return null;
                   },
+                  style: Theme.of(context).textTheme.labelMedium,
                   decoration: const InputDecoration(
                     hintText: "Digite seu nome",
                     hintStyle: TextStyle(fontSize: 16),
@@ -64,13 +63,14 @@ class _FormWidgetState extends State<FormWidget> {
                     }
                     return null;
                   },
+                  style: Theme.of(context).textTheme.labelMedium,
                   decoration: const InputDecoration(
                     hintText: "Digite seu telefone",
                     hintStyle: TextStyle(fontSize: 16),
                   ),
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 ),
                 DropdownButtonFormField<Options>(
-                  key: _dropDownKey,
                   validator: (value) {
                     if (value == null) {
                       return "Por favor, selecione uma opção.";
@@ -113,9 +113,22 @@ class _FormWidgetState extends State<FormWidget> {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      print(_formKey.currentState!.validate());
-                      print(_dropDownKey.currentState!.validate());
-                      // Navigator.pushNamed(context, Routes.registerPage);
+                      if (_formKey.currentState!.validate()) {
+                        showDialog(
+                          context: context,
+                          builder: (context) => const AlertDialog(
+                            title: Text(
+                              "Produto alugado com sucesso!",
+                            ),
+                          ),
+                        );
+
+                        Future.delayed(const Duration(seconds: 2)).then(
+                          (value) {
+                            Navigator.pop(context);
+                          },
+                        );
+                      }
                     },
                     child: Text(
                       "Alugar",
