@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sizer/sizer.dart';
-import 'package:unispace/core/constants/routes.dart';
 import 'package:unispace/core/themes/main_theme.dart';
-import 'package:unispace/features/home/presentation/screens/home_page.dart';
-import 'package:unispace/features/register/screens/register_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -11,14 +9,11 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Sizer(
-      builder: (context, orientation, deviceType) => MaterialApp(
+      builder: (context, orientation, deviceType) => MaterialApp.router(
         title: "UNI'Space",
         debugShowCheckedModeBanner: false,
         theme: MainTheme.getMainTheme(context),
-        routes: {
-          Routes.home: (context) => const HomePage(),
-          Routes.registerPage: (context) => const RegisterPage(),
-        },
+        routerConfig: Modular.routerConfig,
       ),
     );
   }
