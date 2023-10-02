@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unispace/core/constants/app_colors.dart';
 import 'package:unispace/core/constants/routes.dart';
@@ -53,7 +54,7 @@ class BannerWidget extends StatelessWidget {
                 ),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, Routes.registerPage);
+                    Modular.to.pushNamed(Routes.formatRoute(Routes.register));
                   },
                   child: Text(
                     "Começar",
