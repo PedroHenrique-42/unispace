@@ -43,6 +43,7 @@ dependencies:
   flutter_modular: ^6.3.2
   brasil_fields: ^1.14.0
   intl: ^0.18.1
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:

@@ -10,5 +10,12 @@ class SpaceCubit extends Cubit<SpaceState> {
   void add({required Register register}) {
     _registerList.add(register);
     emit(SpaceSuccess(_registerList));
+
+    backToInitialState();
+  }
+
+  backToInitialState() async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    emit(SpaceInitial());
   }
 }

@@ -138,9 +138,7 @@ class _FormWidgetState extends State<FormWidget> {
   void navigateToListRegistersPage() {
     Future.delayed(const Duration(seconds: 1)).then(
       (value) {
-        Modular.to.popAndPushNamed(
-          ".${Routes.formatRoute(Routes.listRegisters)}",
-        );
+        Modular.to.popAndPushNamed(".${Routes.listRegisters}");
       },
     );
   }
