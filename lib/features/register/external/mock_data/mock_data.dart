@@ -1,18 +1,24 @@
 import 'package:unispace/features/register/domain/entities/register.dart';
 
 class MockData {
-  static final List<Register> _registerList = [];
+  final List<Register> _registerList = [];
 
-  static String addRegister(Register register) {
+  String addRegister(Register register) {
     _registerList.add(register);
+
+    print(_registerList);
     return "sucesss";
   }
 
-  // static String deleteRegister(Register register) {
-  //   _registerList.removeWhere((element) => );
-  // }
+  void deleteRegister(Register register) {
+    _registerList.removeWhere((element) => element.id == register.id);
+  }
 
-  static void clearRegisters() {
+  void clearRegisters() {
     _registerList.clear();
+  }
+
+  List<Register> get listRegister {
+    return _registerList;
   }
 }

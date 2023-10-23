@@ -26,6 +26,14 @@ class _FormWidgetState extends State<FormWidget> {
   final TextEditingController _phoneController = TextEditingController();
   SpaceOption spaceOption = SpaceOption.small;
 
+  late SpaceCubit spaceCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    spaceCubit = Modular.get<SpaceCubit>();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -82,7 +90,7 @@ class _FormWidgetState extends State<FormWidget> {
                   spaceOption = option!;
                 }),
                 BlocBuilder<SpaceCubit, SpaceState>(
-                  bloc: Modular.get<SpaceCubit>(),
+                  bloc: spaceCubit,
                   builder: (context, state) {
                     if (state is SpaceSuccess) {
                       WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -110,7 +118,7 @@ class _FormWidgetState extends State<FormWidget> {
                       child: TextButton(
                         onPressed: () async {
                           if (_formKey.currentState!.validate()) {
-                            Modular.get<SpaceCubit>().add(
+                            spaceCubit.add(
                               register: Register(
                                 name: _nameController.text,
                                 phone: _phoneController.text,
