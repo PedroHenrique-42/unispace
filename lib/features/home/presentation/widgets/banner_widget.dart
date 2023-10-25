@@ -54,7 +54,7 @@ class BannerWidget extends StatelessWidget {
                 ),
                 child: TextButton(
                   onPressed: () {
-                    Modular.to.pushNamed(Routes.formatRoute(Routes.register));
+                    Modular.to.navigate(Routes.formatRoute(Routes.register));
                   },
                   child: Text(
                     "Começar",

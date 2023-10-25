@@ -12,8 +12,7 @@ class SpaceCubit extends Cubit<SpaceState> {
 
   void add({required Register register}) async {
     await useCase.addRegister(register);
-    emit(SpaceSuccess(Modular.get<MockData>().listRegister));
-
+    emit(SpaceSuccess(MockData.listRegister));
     backToInitialState();
   }
 

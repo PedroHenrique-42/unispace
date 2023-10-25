@@ -8,10 +8,8 @@ import 'package:unispace/features/register/external/mock_data/mock_data.dart';
 class AddRegisterOnStateDataSource implements AddRegisterDataSource {
   @override
   Future<Either<RegisterFailure, String>> addRegister(Register register) async {
-    print('Ola');
-
     try {
-      return Right(Modular.get<MockData>().addRegister(register));
+      return Right(MockData.addRegister(register));
     } catch (error) {
       return Left(
         AddRegisterFailure(message: 'Não foi possível adicionar o registro'),

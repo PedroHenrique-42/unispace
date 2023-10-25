@@ -24,7 +24,7 @@ class _FormWidgetState extends State<FormWidget> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-  SpaceOption spaceOption = SpaceOption.small;
+  SpaceOption? spaceOption = SpaceOption.small;
 
   late SpaceCubit spaceCubit;
 
@@ -86,9 +86,12 @@ class _FormWidgetState extends State<FormWidget> {
                     TelefoneInputFormatter(),
                   ],
                 ),
-                AppDropdownButton(whenSelected: (option) {
-                  spaceOption = option!;
-                }),
+                AppDropdownButton(
+                  whenSelected: (option) {
+                    spaceOption = option!;
+                  },
+                  value: spaceOption,
+                ),
                 BlocBuilder<SpaceCubit, SpaceState>(
                   bloc: spaceCubit,
                   builder: (context, state) {
@@ -104,11 +107,8 @@ class _FormWidgetState extends State<FormWidget> {
                     }
 
                     return Container(
-                      height:
-                          MediaQuery.of(context).size.width > 1000 ? 50 : 40,
-                      width: MediaQuery.of(context).size.width > 1000
-                          ? 10.w
-                          : 30.w,
+                      height: MediaQuery.of(context).size.width > 1000 ? 50 : 40,
+                      width: MediaQuery.of(context).size.width > 1000 ? 10.w : 30.w,
                       decoration: const BoxDecoration(
                         color: AppColors.secondaryBrown,
                         borderRadius: BorderRadius.all(
@@ -122,7 +122,7 @@ class _FormWidgetState extends State<FormWidget> {
                               register: Register(
                                 name: _nameController.text,
                                 phone: _phoneController.text,
-                                spaceSize: spaceOption,
+                                spaceSize: spaceOption!,
                               ),
                             );
                           }
@@ -146,7 +146,7 @@ class _FormWidgetState extends State<FormWidget> {
   void navigateToListRegistersPage() {
     Future.delayed(const Duration(seconds: 1)).then(
       (value) {
-        Modular.to.popAndPushNamed(".${Routes.listRegisters}");
+        Modular.to.navigate(".${Routes.listRegisters}");
       },
     );
   }

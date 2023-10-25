@@ -9,6 +9,7 @@ class MainTheme {
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryBrown),
       scaffoldBackgroundColor: AppColors.primaryBrown,
+      appBarTheme: const AppBarTheme(color: AppColors.primaryYellow),
       cardTheme: const CardTheme(
         color: AppColors.primaryYellow,
       ),

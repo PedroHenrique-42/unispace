@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:unispace/features/register/external/mock_data/mock_data.dart';
 import 'package:unispace/features/register/presentation/widgets/form_widget.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -8,10 +6,12 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(Modular.get<MockData>().listRegister.toString());
-
-    return const Scaffold(
-      body: Center(child: FormWidget()),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Alugar um espaço'),
+        automaticallyImplyLeading: false,
+      ),
+      body: const Center(child: FormWidget()),
     );
   }
 }
