@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:unispace/features/register/data/data_sources/add_register_data_source.dart';
 import 'package:unispace/features/register/domain/entities/register.dart';
 import 'package:unispace/features/register/domain/failures/register_failure.dart';

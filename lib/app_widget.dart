@@ -12,7 +12,7 @@ class AppWidget extends StatelessWidget {
       builder: (context, orientation, deviceType) => MaterialApp.router(
         title: "UNI'Space",
         debugShowCheckedModeBanner: false,
-        theme: MainTheme.getMainTheme(context),
+        theme: MainTheme(context: context).lightTheme,
         routerConfig: Modular.routerConfig,
       ),
     );

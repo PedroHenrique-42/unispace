@@ -54,6 +54,15 @@ class _AppBarWidgetState extends State<AppBarWidget> {
               ),
               TextButton(
                 onPressed: () {
+                  Modular.to.navigate(Routes.about);
+                },
+                child: Text(
+                  'Sobre',
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+              ),
+              TextButton(
+                onPressed: () {
                   Modular.to.navigate(Routes.register);
                 },
                 child: Text(

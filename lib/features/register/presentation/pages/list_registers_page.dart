@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:unispace/core/constants/app_colors.dart';
 import 'package:unispace/features/register/external/mock_data/mock_data.dart';
 import 'package:unispace/shared/components/app_bar_widget.dart';
 import 'package:unispace/shared/components/app_drawer.dart';
@@ -25,7 +26,9 @@ class _ListRegistersPageState extends State<ListRegistersPage> {
           ? Center(
               child: Text(
                 "Não há nenhum registro",
-                style: theme.textTheme.titleMedium,
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: AppColors.primaryWhite,
+                ),
               ),
             )
           : ListView.builder(

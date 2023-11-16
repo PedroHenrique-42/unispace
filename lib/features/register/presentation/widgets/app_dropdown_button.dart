@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unispace/core/constants/app_colors.dart';
 import 'package:unispace/features/register/utils/space_option.dart';
 
 class AppDropdownButton extends StatelessWidget {
@@ -17,21 +18,35 @@ class AppDropdownButton extends StatelessWidget {
         }
         return null;
       },
-      items: [
+      items: const [
         DropdownMenuItem(
           value: SpaceOption.small,
-          child:
-              Text("Pequeno", style: Theme.of(context).textTheme.labelMedium),
+          child: Text(
+            "Pequeno",
+            style: TextStyle(
+              fontSize: 16,
+              color: AppColors.primaryBlack,
+            ),
+          ),
         ),
         DropdownMenuItem(
           value: SpaceOption.medium,
-          child: Text("Médio", style: Theme.of(context).textTheme.labelMedium),
+          child: Text(
+            "Médio",
+            style: TextStyle(
+              fontSize: 16,
+              color: AppColors.primaryBlack,
+            ),
+          ),
         ),
         DropdownMenuItem(
           value: SpaceOption.large,
           child: Text(
             "Grande",
-            style: Theme.of(context).textTheme.labelMedium,
+            style: TextStyle(
+              fontSize: 16,
+              color: AppColors.primaryBlack,
+            ),
           ),
         ),
       ],

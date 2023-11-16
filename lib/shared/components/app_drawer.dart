@@ -11,7 +11,7 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: AppColors.primaryYellow,
-      width: 50.w,
+      width: 70.w,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -22,6 +22,15 @@ class AppDrawer extends StatelessWidget {
             },
             child: Text(
               'Home',
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              Modular.to.navigate(Routes.about);
+            },
+            child: Text(
+              'Sobre',
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),

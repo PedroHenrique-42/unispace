@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:unispace/core/constants/routes.dart';
+import 'package:unispace/features/home/presentation/pages/about_page.dart';
 import 'package:unispace/features/home/presentation/pages/home_page.dart';
 import 'package:unispace/features/register/data/data_sources/add_register_data_source.dart';
 import 'package:unispace/features/register/data/repositories_impl/add_register_repository_impl.dart';
@@ -23,6 +24,7 @@ class HomeModule extends Module {
   @override
   void routes(r) {
     r.child(Routes.home, child: (context) => const HomePage());
+    r.child(Routes.about, child: (context) => const AboutPage());
     r.child(Routes.register, child: (context) => const RegisterPage());
     r.child(Routes.listRegisters, child: (context) => const ListRegistersPage());
   }

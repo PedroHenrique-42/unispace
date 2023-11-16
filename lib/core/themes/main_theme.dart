@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 import 'package:unispace/core/constants/app_colors.dart';
 
 class MainTheme {
-  static ThemeData getMainTheme(BuildContext context) {
+  final BuildContext context;
+
+  MainTheme({required this.context});
+
+  ThemeData get lightTheme {
+    var screenSize = MediaQuery.of(context);
+
     return ThemeData(
       fontFamily: "Modak",
       useMaterial3: true,
@@ -21,15 +26,19 @@ class MainTheme {
       textTheme: TextTheme(
         labelMedium: TextStyle(
           color: AppColors.primaryBlack,
-          fontSize: MediaQuery.of(context).size.width > 1000 ? 4.sp : 16,
+          fontSize: screenSize.size.width > 1000 ? 32 : 16,
+        ),
+        bodyMedium: TextStyle(
+          color: AppColors.primaryWhite,
+          fontSize: screenSize.size.width > 1000 ? 32 : 16,
         ),
         titleSmall: TextStyle(
           color: AppColors.primaryWhite,
-          fontSize: MediaQuery.of(context).size.width > 1000 ? 4.sp : 16,
+          fontSize: screenSize.size.width > 1000 ? 32 : 16,
         ),
         titleMedium: TextStyle(
           color: AppColors.primaryWhite,
-          fontSize: MediaQuery.of(context).size.width > 1000 ? 8.sp : 24,
+          fontSize: screenSize.size.width > 1000 ? 32 : 24,
         ),
       ),
     );
